@@ -1,0 +1,16 @@
+{
+  "name": "my-cypress-project",
+  "version": "1.0.0",
+  "description": "A Cypress project using TypeScript for end-to-end testing.",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress open",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "cypress": "^12.0.0",
+    "typescript": "^4.0.0"
+  },
+  "author": "",
+  "license": "ISC"
+}

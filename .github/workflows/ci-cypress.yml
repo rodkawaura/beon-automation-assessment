@@ -23,7 +23,6 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: my-cypress-project
 
       - name: Wait for Petstore API
         run: |
@@ -40,18 +39,17 @@ jobs:
 
       - name: Run Cypress tests (all)
         run: npx cypress run
-        working-directory: my-cypress-project
 
       - name: Upload Cypress videos (on failure)
         if: failure()
         uses: actions/upload-artifact@v4
         with:
           name: cypress-videos
-          path: my-cypress-project/cypress/videos/
+          path: cypress/videos/
 
       - name: Upload Cypress screenshots (on failure)
         if: failure()
         uses: actions/upload-artifact@v4
         with:
           name: cypress-screenshots
-          path: my-cypress-project/cypress/screenshots/
+          path: cypress/screenshots/

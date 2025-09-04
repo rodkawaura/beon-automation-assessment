@@ -42,7 +42,8 @@ jobs:
 
       - name: Generate Mochawesome HTML report
         run: |
-          npx mochawesome-merge cypress/reports/*.json | npx mochawesome-report-generator --reportDir cypress/reports --reportFilename mochawesome.html
+          npx mochawesome-merge cypress/reports/*.json > cypress/reports/merged.json
+          npx mochawesome-report-generator cypress/reports/merged.json --reportDir cypress/reports --reportFilename mochawesome.html
 
       - name: Upload Mochawesome HTML report
         uses: actions/upload-artifact@v4

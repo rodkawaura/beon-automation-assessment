@@ -6,6 +6,9 @@ cypress/videos/
 cypress/screenshots/
 cypress/downloads/
 
+# Cypress reports
+cypress/reports/
+
 # Logs
 *.log
 

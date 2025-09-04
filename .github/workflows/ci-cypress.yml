@@ -38,7 +38,7 @@ jobs:
         shell: bash
 
       - name: Run Cypress tests (all)
-        run: npx cypress run --reporter mochawesome --reporter-options "reportDir=cypress/reports,overwrite=true,html=true,json=false"
+        run: npx cypress run --reporter mochawesome --reporter-options "reportDir=cypress/reports,overwrite=false,html=true,json=false"
 
       - name: Generate Mochawesome HTML report
         run: |

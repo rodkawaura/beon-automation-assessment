@@ -66,11 +66,11 @@ This project uses [Mochawesome](https://github.com/adamgruber/mochawesome) to ge
 ### How to View the Report Locally
 
 1. After running tests with `npx cypress run`, open the HTML report:
-   - Navigate to `cypress/reports/html/mochawesome.html` and open it in your browser.
+   - Navigate to `cypress/reports/mochawesome.html` and open it in your browser.
 
 2. To generate the report manually (if needed):
    ```
-   npx mochawesome-merge cypress/reports/html/*.json | npx mochawesome-report-generator --reportDir cypress/reports/html --reportFilename mochawesome.html
+   npx mochawesome-merge cypress/reports/*.json | npx mochawesome-report-generator --reportDir cypress/reports --reportFilename mochawesome.html
    ```
 
 ### In CI

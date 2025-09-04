@@ -1,60 +1,77 @@
-# My Cypress Project
+# BEON Automation Assessment
 
-This is a sample Cypress project set up with TypeScript for end-to-end testing.
+This repository contains automated UI and API tests for BEON.tech and related applications using Cypress (TypeScript).
 
-## Project Structure
+## 🚀 Getting Started
+
+### 1. Clone the Repository
 
 ```
-my-cypress-project
-├── cypress
-│   ├── e2e
-│   │   └── sample.cy.ts
-│   ├── support
-│   │   ├── commands.ts
-│   │   └── e2e.ts
-│   └── fixtures
-│       └── example.json
-├── cypress.config.ts
-├── package.json
-├── tsconfig.json
-└── README.md
+git clone https://github.com/rodkawaura/beon-automation-assessment.git
+cd beon-automation-assessment/my-cypress-project
 ```
 
-## Setup Instructions
+### 2. Install Dependencies
 
-1. **Clone the repository**:
-   ```
-   git clone <repository-url>
-   cd my-cypress-project
-   ```
+Make sure you have [Node.js](https://nodejs.org/) (v16+) and [npm](https://www.npmjs.com/) installed.
 
-2. **Install dependencies**:
-   ```
-   npm install
-   ```
-
-3. **Open Cypress**:
-   ```
-   npx cypress open
-   ```
-
-## Usage
-
-- The end-to-end tests are located in the `cypress/e2e` directory.
-- Custom commands can be defined in `cypress/support/commands.ts`.
-- Sample data for tests can be found in `cypress/fixtures/example.json`.
-
-## Running Tests
-
-To run the tests, use the following command:
 ```
-npx cypress run
+npm install
 ```
 
-## Contributing
+### 3. Set Up Cypress
 
-Feel free to submit issues or pull requests for improvements or bug fixes. 
+Cypress is already configured in this project. No extra setup is needed.
 
-## License
+- To open the Cypress Test Runner (GUI):
+  ```
+  npx cypress open
+  ```
+- To run all tests in headless mode:
+  ```
+  npx cypress run
+  ```
 
-This project is licensed under the MIT License.
+## 🧪 Running API Tests (Petstore)
+
+The API tests require a local instance of the Swagger Petstore API. You need [Docker](https://www.docker.com/products/docker-desktop/) installed.
+
+1. Pull the Petstore Docker image:
+   ```
+   docker pull swaggerapi/petstore3:unstable
+   ```
+2. Run the Petstore API locally:
+   ```
+   docker run --name swaggerapi-petstore3 -d -p 8080:8080 swaggerapi/petstore3:unstable
+   ```
+3. Run the API tests:
+   - In the Cypress Test Runner, select `cypress/e2e/api/api-tests.cy.ts`
+   - Or run headless:
+     ```
+     npx cypress run --spec cypress/e2e/api/api-tests.cy.ts
+     ```
+
+## 🧪 Running UI Tests
+
+- In the Cypress Test Runner, select any test in `cypress/e2e/ui/`
+- Or run all UI tests headless:
+  ```
+  npx cypress run --spec "cypress/e2e/ui/*.cy.ts"
+  ```
+
+## 📂 Project Structure
+
+- `cypress/e2e/api/` - API test specs
+- `cypress/e2e/ui/`  - UI test specs
+- `cypress/fixtures/` - Test data (JSON)
+- `cypress/support/`  - Cypress support files
+- `.gitignore`        - Files/folders excluded from git
+
+## 📝 Notes
+- Ensure Docker is running before executing API tests.
+- UI tests use live web applications and may be affected by network or site changes.
+- All test data is managed in the `cypress/fixtures/` folder for easy updates.
+
+---
+
+Feel free to open issues or submit pull requests for improvements!

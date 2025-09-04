@@ -38,7 +38,17 @@ jobs:
         shell: bash
 
       - name: Run Cypress tests (all)
-        run: npx cypress run
+        run: npx cypress run --reporter mochawesome --reporter-options "reportDir=cypress/reports/html,overwrite=false,html=false,json=true"
+
+      - name: Generate Mochawesome HTML report
+        run: |
+          npx mochawesome-merge cypress/reports/html/*.json | npx mochawesome-report-generator --reportDir cypress/reports/html --reportFilename mochawesome.html
+
+      - name: Upload Mochawesome HTML report
+        uses: actions/upload-artifact@v4
+        with:
+          name: mochawesome-html-report
+          path: cypress/reports/html/mochawesome.html
 
       - name: Upload Cypress videos (on failure)
         if: failure()

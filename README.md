@@ -59,6 +59,23 @@ The API tests require a local instance of the Swagger Petstore API. You need [Do
   npx cypress run --spec "cypress/e2e/ui/*.cy.ts"
   ```
 
+## 📊 Cypress HTML Reporting (Mochawesome)
+
+This project uses [Mochawesome](https://github.com/adamgruber/mochawesome) to generate HTML test reports.
+
+### How to View the Report Locally
+
+1. After running tests with `npx cypress run`, open the HTML report:
+   - Navigate to `cypress/reports/html/mochawesome.html` and open it in your browser.
+
+2. To generate the report manually (if needed):
+   ```
+   npx mochawesome-merge cypress/reports/html/*.json | npx mochawesome-report-generator --reportDir cypress/reports/html --reportFilename mochawesome.html
+   ```
+
+### In CI
+- The HTML report will be available as a downloadable artifact in the GitHub Actions workflow run (see the Actions tab after a run).
+
 ## 📂 Project Structure
 
 - `cypress/e2e/api/` - API test specs
